@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog name="CultureNews"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="Catalog_Schema.xsd">
+    <categotyName name = "Фильмы">
+      <subcategoryName name = "Фантастика">
+          <news id="f_f_1">
+              <name>Алиса в Зазеркалье</name>
+              <provider>http://afisha.tut.by/</provider>
+              <dateOfIssue>2016-05-20</dateOfIssue>
+              <body> Новое захватывающее приключение.
+                  На этот раз главной героине предстоит отправиться в путешествие во времени,
+                  полное неожиданностей и ярких открытий, чтобы спасти своего друга, Безумного Шляпника.</body>
+          </news>
+
+          <news id="f_f_2">
+              <name>Варкрафт : в прокате до 12 июня</name>
+              <provider>http://afisha.tut.by/</provider>
+              <dateOfIssue>2016-04-20</dateOfIssue>
+              <body>В ролях: Трэвис Фиммел, Пола Пэттон</body>
+          </news>
+      </subcategoryName>
+
+      <subcategoryName name = "Криминал">
+          <news id="f_c_1">
+              <name>20 фактов о фильме «Криминальное чтиво»</name>
+              <provider>http://www.kinopoisk.ru/</provider>
+              <dateOfIssue>2010-12-06</dateOfIssue>
+              <body>В Южной Корее, Японии и Словакии фильм вышел на экраны раньше, чем в США</body>
+          </news>
+          <news  id="f_c_2">
+              <name>«Криминальное чтиво» : зайчишка</name>
+              <provider>http://www.kinopoisk.ru/</provider>
+              <dateOfIssue>2011-03-25</dateOfIssue>
+              <body>Героиня фильма, роль которой исполнила Аманда Пламмер,
+                  получила своё прозвище в честь кролика Линды Чен — помошницы Квентина Тарантино,
+                  перепечатывавшей сценарий фильма, написанный режиссёром от руки. </body>
+          </news>
+      </subcategoryName>
+    </categotyName>
+
+    <categotyName name = "Книги">
+        <subcategoryName name = "Фантастика">
+            <news id="b_f_1">
+                <name>«Песнь Льда и Огня» : выбор Джорджа Мартина</name>
+                <provider>http://www.tele.ru/</provider>
+                <dateOfIssue>2015-07-15</dateOfIssue>
+                <body>Питер Динклэйдж был единственным, кого Джордж Мартин рассматривал на роль Тириона Ланнистера.</body>
+            </news>
+
+            <news id="b_f_2">
+                <name>«Песнь Льда и Огня» : 146 новорожденных девочек были названы «Кхалиси»</name>
+                <provider>http://www.tele.ru/</provider>
+                <dateOfIssue>2014-11-12</dateOfIssue>
+                <body> В 2012 году в Америке 146 новорожденных девочек были названы «Кхалиси» в честь
+                    персонажа романа – Матери Драконов Дейенерис Таргариен.
+                    При этом «Кхалиси» – это не имя, а титул.</body>
+            </news>
+        </subcategoryName>
+
+        <subcategoryName name = "Русская классика">
+            <news id="b_r_1">
+                <name>Достоевский широко использовал реальную топографию Петербурга</name>
+                <provider>http://www.tutoronline.ru/</provider>
+                <dateOfIssue>2008-04-04</dateOfIssue>
+                <body>Как признался писатель, описание двора, в котором Раскольников прячет вещи, украденные им из квартиры процентщицы,
+                    он составил из личного опыта – когда однажды прогуливаясь по городу, Достоевский завернул в пустынный двор.</body>
+            </news>
+            <news id="b_r_2">
+                <name>басня Крылова «Стрекоза и муравей»</name>
+                <provider>http://www.tutoronline.ru/</provider>
+                <dateOfIssue>2008-09-30</dateOfIssue>
+                <body>В басне Крылова «Стрекоза и муравей» есть строки:
+                    «Попрыгунья стрекоза лето красное пропела».
+                    Однако известно, что стрекоза не может издавать звуков.
+                    Дело в том, что в то время слово «стрекоза» служило обобщённым названием для нескольких видов насекомых.
+                    А героем басни на самом деле является кузнечик</body>
+            </news>
+        </subcategoryName>
+    </categotyName>
+</catalog>
+

@@ -1,0 +1,71 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            version="1.0">
+
+    <xsd:element name="catalog" type="catalogType"/>
+
+    <xsd:complexType name="catalogType">
+        <xsd:choice maxOccurs="unbounded">
+            <xsd:element name="categotyName" type="categotyNameType"/>
+        </xsd:choice>
+        <xsd:attribute name="name" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="categotyNameType">
+        <xsd:choice maxOccurs="unbounded">
+            <xsd:element name="subcategoryName" type="subcategoryNameType"/>
+        </xsd:choice>
+        <xsd:attribute name="name" use="required" type="categotyNameAttributeType"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="subcategoryNameType">
+        <xsd:choice maxOccurs="unbounded">
+            <xsd:element name="news" type="newsType"/>
+        </xsd:choice>
+        <xsd:attribute name="name" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="newsType">
+        <xsd:sequence maxOccurs="1">
+            <xsd:element name="name" type="nameType"/>
+            <xsd:element name="provider" type="providerType"/>
+            <xsd:element name="dateOfIssue" type="dateOfIssueType"/>
+            <xsd:element name="body" type="bodyType"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" use="required"/>
+    </xsd:complexType>
+
+
+    <xsd:simpleType name="nameType">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="100"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="providerType">
+        <xsd:restriction base="xsd:anyURI">
+            <xsd:maxLength value="200"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="dateOfIssueType">
+        <xsd:restriction base="xsd:date">
+            <xsd:maxLength value="30"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="bodyType">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2000"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="categotyNameAttributeType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Фильмы"/>
+            <xsd:enumeration value="Музыка"/>
+            <xsd:enumeration value="Книги"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

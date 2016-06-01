@@ -1,0 +1,213 @@
+by.trepam.news.start
+class Main{
+ psvm(){
+  Controller controller = new Controller();
+  View view = new View();
+
+  Request request = view.doUserAction();
+  Response response = controller.doAction(request);
+
+
+ }
+
+
+}
+
+
+
+by.trepam.news.view
+
+class View{
+
+ public Request doUserAction(){
+
+  Request request = new Request();
+  request.setCommandName("SAVE_NEW_NEWS");
+  request.setTitle("1234");
+
+  return request;
+ }
+
+ public printAnswer(Response response){
+
+ }
+
+ public printAnswer(String message){
+
+ }
+
+}
+
+
+
+
+by.trepam.news.entity
+
+class News{}
+class SubCategory{}
+class Category{}
+
+class Request{}
+class Response{}
+
+by.trepam.news.controller
+
+enum CommandName{
+ SAVE_NEW_NEWS, FIND_NEWS
+}
+
+class CommandHelper{
+ private Map<CommandName, Command> commands = new HashMap<>();
+
+ CommandHelper(){
+  commands.put(CommandName.SAVE_NEW_NEWS, new SaveNewNewsCommand());
+
+  commands.put(CommandName.FIND_NEWS, new FindNewsCommand());
+ }
+
+ public Command getCommand(String name){
+  CommandName commadName = CommandNAme.valueOf(name);
+  Command command = commands.get(commandNAme);
+
+  return command;
+
+ }
+}
+
+class Controller{
+ CommandHelper helper = new CommandHelper();
+
+
+ public Response doAction(Request request){
+  String commandNAme = request.getCommandNAme();
+  Command command = helper.getCommand(commandNAme);
+  Response response = command.execute();
+  return response;
+ }
+}
+
+by.trepam.news.command;
+
+interface Command{
+ Response execute(Request request);
+}
+
+by.trepam.news.command.impl;
+
+
+class SaveNewNewsCommand implements Command{
+ Response execute(Request request){
+ String title = request.getTitle();
+ String date = request.getDate();
+
+ Servicefactort f = ServiceFactory.getInstance();
+ INewsService service = ....;
+
+ Response response = new Response();
+ try{
+   service.saveNewNews(...);
+   response.setStatus(true);
+   response.setMessage("sdsf");
+ }catch(ServiceException e){
+   // logging
+   response.setStatus(false);
+   response.setErrorMessage("sdsf");
+ }
+
+ return response;
+
+ }
+}
+
+class FindNewsCommand implements Command{
+ Response execute(Request request){
+
+
+ }
+}
+
+
+by.trepam.news.service
+
+class ServiceFactory{
+
+}
+
+public interface IService{
+ void saveNewNews() throws ServiceException;
+ News findNews() throws ServiceException;
+}
+
+by.trepam.news.service.impl
+
+public class NewsServiceImpl imlements IService{
+ public void saveNewNews(String...params)throws ServiceException{
+  // validation
+
+  DAOFactory factory = DAOFactory.getInstance();
+  INewsDAP newDAO = factory.getNewsDAO();
+
+  try{
+      newDAO.saveNews...();
+
+  }catch(DAOException e){
+   throw new ServiceException("ms", e);
+  }
+
+ }
+
+ public News findNews(Criteria criteria)throws ServiceException{
+
+ }
+
+}
+
+by.trepam.news.service.exception;
+
+class ServiceException extends Exception{
+}
+
+by.trepam.news.dao;
+
+class DAOFactory{// singleton
+
+ private INewDao newsDAO = new NewsDAOImpl();
+
+
+ public INewsDAO getNewsDAO(){
+  return newsDAO;
+ }
+}
+
+
+interface INewDAO{
+ saveNews(News news) throws DAOException;
+ Catalog getCatalog() throws DAOException;
+}
+
+by.trepam.news.dao.impl;
+
+class NewsDAOImpl implements INewsDAO{
+ saveNews(News news) throws DAOException{
+  try{
+
+  }catch(FileNotFoundException e){
+   throw new DAOException("mmm", e);
+  }
+
+
+ }
+ Catalog getCatalog() throws DAOException{
+
+ }
+}
+
+by.trepam.news.dao.exception;
+
+class DAOException extends Exception{
+ // String
+ DAOException(String message){
+  super(message);
+ }
+ //String , Exception
+}
